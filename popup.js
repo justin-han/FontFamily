@@ -1,0 +1,46 @@
+document.addEventListener('DOMContentLoaded', function(){
+  // Font style selection
+  var fontSelect = document.getElementById('fontSelect');
+  var applyButton = document.getElementById('applyButton');
+
+  // Font size input
+  var fontSize = document.getElementById('fontSize');
+  var applySizeButton = document.getElementById('applySizeButton');
+
+  // Change font style on button click
+  applyButton.addEventListener("click", function(){
+    var font = fontSelect.value;  
+    chrome.tabs.insertCSS({
+        code: '*{ font-family: "' + font +'" !important;}'
+      })
+  }) 
+
+  // Change font size on button click
+  applySizeButton.addEventListener("click", function(){
+    var size = fontSize.value;  
+    chrome.tabs.insertCSS({
+        code: '*{ font-size: ' + size +'px;}'
+      })
+  }) 
+
+})
+
+function listFonts() {
+  let { fonts } = document;
+  const it = fonts.entries();
+
+  let arr = [];
+  let done = false;
+
+  while (!done) {
+    const font = it.next();
+    if (!font.done) {
+      arr.push(font.value[0].family);
+    } else {
+      done = font.done;
+    }
+  }
+
+  // converted to set then arr to filter repetitive values
+  return [...new Set(arr)];
+}
