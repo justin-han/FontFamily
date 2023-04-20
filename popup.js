@@ -23,6 +23,13 @@ document.addEventListener('DOMContentLoaded', function(){
       })
   }) 
 
+  applyLineHeight.addEventListener("click", function(){
+    var size = lineHeight.value;  
+    chrome.tabs.insertCSS({
+        code: '*{ line-height: ' + size + ';}'
+      })
+  }) 
+
   applySpacing.addEventListener("click", function(){
     var size = spacingSize.value;  
     chrome.tabs.insertCSS({
