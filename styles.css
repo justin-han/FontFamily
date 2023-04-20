@@ -7,7 +7,6 @@ body {
   }
 
 select {
-    font-family: sans-serif;
     font-size: 16px;
     padding: 5px;
     margin: 10px 0;
@@ -72,5 +71,5 @@ button:active {
 
 @font-face {
   font-family: 'OpenDyslexic';
-  src: url('OpenDyslexic-Regular.otf') format('opentype');;
+  src: url('OpenDyslexic-Regular.otf') format("opentype");
 }
