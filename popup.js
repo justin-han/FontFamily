@@ -23,4 +23,11 @@ document.addEventListener('DOMContentLoaded', function(){
       })
   }) 
 
+  applySpacing.addEventListener("click", function(){
+    var size = spacingSize.value;  
+    chrome.tabs.insertCSS({
+        code: '*{ letter-spacing: ' + size +'px;}'
+      })
+  }) 
+
 })
