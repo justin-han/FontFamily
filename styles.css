@@ -69,3 +69,8 @@ button:active:after {
 button:active {
   top: 1px;
 }
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('OpenDyslexic-Regular.otf') format('opentype');;
+}
