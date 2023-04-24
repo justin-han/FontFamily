@@ -23,4 +23,24 @@ document.addEventListener('DOMContentLoaded', function(){
       })
   }) 
 
+  var applySpacingButton = document.getElementById('applySpacing');
+  var letterSpacingInput = document.getElementById('letterSpacing');
+  
+  applySpacingButton.addEventListener('click', function() {
+    var letterSpacing = letterSpacingInput.value;
+    chrome.tabs.insertCSS({
+      code: '* { letter-spacing: ' + letterSpacing + 'px; }'
+    });
+  });
+
+  var applyLineHeightButton = document.getElementById('applyLineHeight');
+  var lineHeightInput = document.getElementById('lineHeight');
+
+  applyLineHeightButton.addEventListener('click', function() {
+    var lineHeight = lineHeightInput.value;
+    chrome.tabs.insertCSS({
+      code: '* { line-height: ' + lineHeight + '; }'
+    });
+  });
+
 })
